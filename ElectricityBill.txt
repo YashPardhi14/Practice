@@ -1,0 +1,30 @@
+package Assignment5;
+import java.util.*;
+public class ElectricityBill {
+
+	public static void main(String[] args) {
+		 Scanner s=new Scanner(System.in);
+		 System.out.println("Input U(in kwh)-" );
+		 int U=s.nextInt();
+		  
+		 int[] range= {10,15,20,25};
+		 int hundBrac=U/100;
+		 int rem=U%100;
+		 int totalBill=0;
+		  if(U<=100) {
+			 totalBill+=rem*range[0];}
+		             for(int i=0;i<hundBrac;i++) {
+		             if(U>100 && U<=300) {
+		              totalBill+=range[i]*100;
+		               if(i==hundBrac-1) {
+			  totalBill+=rem*range[i+1];}
+		 }
+		  else if(U>300) {
+			 totalBill=100*45 + (U-300)*25;
+		 }
+	 }
+	System.out.println("Output-"+totalBill);
+	s.close();
+	}
+
+}
